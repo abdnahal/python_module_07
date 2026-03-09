@@ -1,4 +1,4 @@
-from ..ex0.CreatureCard import CreatureCard
+from ex0.CreatureCard import CreatureCard
 from .SpellCard import SpellCard
 from .ArtifactCard import ArtifactCard
 from .Deck import Deck
@@ -41,11 +41,6 @@ def main():
         print(f"Play result: {result}\n")
 
     print("Polymorphism in action: Same interface, different card behaviors!")
-    print("\nKey Insights:")
-    print("- The Deck doesn't need to know specific card types")
-    print("- All cards implement the same play() interface")
-    print("- Each card type behaves differently when played")
-    print("- This design makes it easy to add new card types!")
 
 
 if __name__ == "__main__":
