@@ -1,0 +1,52 @@
+from ..ex0.CreatureCard import CreatureCard
+from .SpellCard import SpellCard
+from .ArtifactCard import ArtifactCard
+from .Deck import Deck
+
+
+def main():
+    print("=== DataDeck Deck Builder ===\n")
+
+    # Create a deck
+    deck = Deck()
+
+    # Create different card types
+    creature = CreatureCard("Fire Dragon", 5, "Legendary", 7, 5)
+    spell = SpellCard("Lightning Bolt", 3, "Common", "damage")
+    artifact = ArtifactCard("Mana Crystal", 2, "Uncommon", 5,
+                            "+1 mana per turn")
+
+    # Add cards to deck
+    deck.add_card(creature)
+    deck.add_card(spell)
+    deck.add_card(artifact)
+
+    print("Building deck with different card types...")
+    print(f"Deck stats: {deck.get_deck_stats()}\n")
+
+    # Shuffle and draw cards
+    deck.shuffle()
+
+    print("Drawing and playing cards:\n")
+
+    for _ in range(3):
+        if deck.is_empty():
+            break
+
+        card = deck.draw_card()
+        card_type = card.__class__.__name__
+
+        print(f"Drew: {card.name} ({card_type.replace('Card', '')})")
+        result = card.play({})
+        print(f"Play result: {result}\n")
+
+    print("Polymorphism in action: Same interface, different card behaviors!")
+    print("\nKey Insights:")
+    print("- The Deck doesn't need to know specific card types")
+    print("- All cards implement the same play() interface")
+    print("- Each card type behaves differently when played")
+    print("- This design makes it easy to add new card types!")
+
+
+if __name__ == "__main__":
+    main()
