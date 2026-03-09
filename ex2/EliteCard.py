@@ -20,7 +20,7 @@ class EliteCard(Card, Combatable, Magical):
         if attack <= 0 or health <= 0:
             raise ValueError("Attack and health must be positive")
 
-        self.attack = attack
+        self.attack_power = attack
         self.health = health
         self.max_health = health
 
@@ -45,13 +45,13 @@ class EliteCard(Card, Combatable, Magical):
         return {
             "attacker": self.name,
             "target": target_name,
-            "damage": self.attack,
+            "damage": self.attack_power,
             "combat_type": "melee",
         }
 
     def defend(self, incoming_damage: int) -> dict:
 
-        block_amount = min(self.attack // 2, incoming_damage)
+        block_amount = min(self.attack_power // 2, incoming_damage)
         actual_damage = incoming_damage - block_amount
 
         self.health -= actual_damage
@@ -67,7 +67,7 @@ class EliteCard(Card, Combatable, Magical):
     def get_combat_stats(self) -> dict:
         return {
             "name": self.name,
-            "attack": self.attack,
+            "attack": self.attack_power,
             "health": self.health,
             "max_health": self.max_health,
             "alive": self.health > 0,
@@ -115,7 +115,7 @@ class EliteCard(Card, Combatable, Magical):
         info.update(
             {
                 "type": "Elite",
-                "attack": self.attack,
+                "attack": self.attack_power,
                 "health": self.health,
                 "mana_pool": self.mana_pool,
                 "spells": self.spells,
