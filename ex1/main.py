@@ -13,8 +13,7 @@ def main():
     # Create different card types
     creature = CreatureCard("Fire Dragon", 5, "Legendary", 7, 5)
     spell = SpellCard("Lightning Bolt", 3, "Common", "damage")
-    artifact = ArtifactCard("Mana Crystal", 2, "Uncommon", 5,
-                            "+1 mana per turn")
+    artifact = ArtifactCard("Mana Crystal", 2, "Uncommon", 5, "+1 mana per turn")
 
     # Add cards to deck
     deck.add_card(creature)

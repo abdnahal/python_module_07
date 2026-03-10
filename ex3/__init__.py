@@ -5,9 +5,9 @@ from ex3.FantasyCardFactory import FantasyCardFactory
 from ex3.GameEngine import GameEngine
 
 __all__ = [
-    'GameStrategy',
-    'CardFactory',
-    'AggressiveStrategy',
-    'FantasyCardFactory',
-    'GameEngine'
+    "GameStrategy",
+    "CardFactory",
+    "AggressiveStrategy",
+    "FantasyCardFactory",
+    "GameEngine",
 ]

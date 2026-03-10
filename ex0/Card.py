@@ -18,7 +18,7 @@ class Card(ABC):
             "name": self.name,
             "cost": self.cost,
             "rarity": self.rarity,
-            "type": self.__class__.__name__
+            "type": self.__class__.__name__,
         }
 
     def is_playable(self, available_mana: int) -> bool:
