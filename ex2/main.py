@@ -4,7 +4,6 @@ from ex2.EliteCard import EliteCard
 def main():
     print("=== DataDeck Ability System ===\n")
 
-    # Create an elite card with combat and magic abilities
     arcane_warrior = EliteCard(
         name="Arcane Warrior",
         cost=6,
@@ -15,19 +14,16 @@ def main():
         spells=["Fireball", "Heal", "Berserk"],
     )
 
-    # Display capabilities from all interfaces
     print("EliteCard capabilities:")
     print("- Card: ['play', 'get_card_info', 'is_playable']")
     print("- Combatable: ['attack', 'defend', 'get_combat_stats']")
     print("- Magical: ['cast_spell', 'channel_mana', 'get_magic_stats']")
     print()
 
-    # Test Card interface
     print("Playing Arcane Warrior (Elite Card):")
     result = arcane_warrior.play({})
     print(f"Play result: {result}\n")
 
-    # Test Combatable interface
     print("Combat phase:")
 
     attack_result = arcane_warrior.attack("Enemy")
@@ -37,7 +33,6 @@ def main():
     print(f"Defense result: {defense_result}")
     print()
 
-    # Test Magical interface
     print("Magic phase:")
 
     spell_result = arcane_warrior.cast_spell("Fireball", ["Enemy1", "Enemy2"])
@@ -47,7 +42,6 @@ def main():
     print(f"Mana channel: {mana_result}")
     print()
 
-    # Display full stats
     print("Full Card Information:")
     print(arcane_warrior.get_card_info())
     print()
@@ -57,11 +51,6 @@ def main():
     print()
 
     print("Multiple interface implementation successful!")
-    print("\nKey Insights:")
-    print("- EliteCard implements 3 interfaces simultaneously")
-    print("- Different abilities are cleanly separated by interface")
-    print("- One card can have combat AND magical abilities")
-    print("- Multiple inheritance enables flexible design!")
 
 
 if __name__ == "__main__":

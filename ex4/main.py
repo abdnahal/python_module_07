@@ -5,10 +5,8 @@ from ex4.TournamentPlatform import TournamentPlatform
 def main():
     print("=== DataDeck Tournament Platform ===\n")
 
-    # Step 1: Create tournament platform
     platform = TournamentPlatform()
 
-    # Step 2: Register tournament cards
     print("Registering Tournament Cards...")
 
     fire_dragon = TournamentCard(
@@ -31,7 +29,6 @@ def main():
         print(f"- Record: {rank_info['record']}")
     print()
 
-    # Step 3: Create tournament match
     print("Creating tournament match...")
     match_result = platform.create_match(dragon_id, wizard_id)
     print(
@@ -42,7 +39,6 @@ def main():
     )
     print()
 
-    # Step 4: Display leaderboard
     print("Tournament Leaderboard:")
     leaderboard = platform.get_leaderboard()
     for rank, entry in enumerate(leaderboard, 1):
@@ -52,7 +48,6 @@ def main():
         )
     print()
 
-    # Step 5: Generate tournament report
     print("Platform Report:")
     report = platform.generate_tournament_report()
     print(

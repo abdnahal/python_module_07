@@ -2,7 +2,8 @@ from .Card import Card
 
 
 class CreatureCard(Card):
-    def __init__(self, name: str, cost: int, rarity: str, attack: int, health: int):
+    def __init__(self, name: str,
+                 cost: int, rarity: str, attack: int, health: int):
         super().__init__(name, cost, rarity)
         if attack <= 0:
             raise ValueError("Creature attack must be positive")
@@ -29,5 +30,6 @@ class CreatureCard(Card):
 
     def get_card_info(self) -> dict:
         info = super().get_card_info()
-        info.update({"type": "Creature", "attack": self.attack, "health": self.health})
+        info.update({"type": "Creature", "attack": self.attack,
+                     "health": self.health})
         return info

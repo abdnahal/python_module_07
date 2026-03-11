@@ -6,7 +6,6 @@ from ex3.GameEngine import GameEngine
 def main():
     print("=== DataDeck Game Engine ===\n")
 
-    # Step 1: Create factory and strategy
     print("Configuring Fantasy Card Game...")
     factory = FantasyCardFactory()
     strategy = AggressiveStrategy()
@@ -14,18 +13,14 @@ def main():
     print(f"Factory: {factory.__class__.__name__}")
     print(f"Strategy: {strategy.get_strategy_name()}")
 
-    # Show available types
     supported = factory.get_supported_types()
     print(f"Available types: {supported}\n")
 
-    # Step 2: Create and configure engine
     engine = GameEngine()
     engine.configure_engine(factory, strategy)
 
-    # Step 3: Simulate turns
     print("Simulating aggressive turn...")
 
-    # Create some sample cards for display
     hand = [
         factory.create_creature("dragon"),
         factory.create_creature("goblin"),
@@ -39,7 +34,6 @@ def main():
         print(f"{card.name} ({card.cost})", end="")
     print("]\n")
 
-    # Simulate turn
     turn_result = engine.simulate_turn()
 
     print("Turn execution:")
@@ -52,7 +46,6 @@ def main():
     )
     print()
 
-    # Step 4: Display engine status
     print("Game Report:")
     status = engine.get_engine_status()
     print(
