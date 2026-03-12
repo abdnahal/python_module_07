@@ -1,5 +1,6 @@
-from typing import List, Dict
+from typing import List, Dict, Any
 from ex3.GameStrategy import GameStrategy
+from ex0.Card import Card
 
 
 class AggressiveStrategy(GameStrategy):
@@ -8,10 +9,10 @@ class AggressiveStrategy(GameStrategy):
         self.damage_dealt = 0
         self.cards_played_this_turn = []
 
-    def _card_cost(self, card):
+    def _card_cost(self, card: Card):
         return card.cost
 
-    def _target_threat(self, target):
+    def _target_threat(self, target: Any):
         return getattr(target, "attack", 0)
 
     def execute_turn(self, hand: List, battlefield: List) -> Dict:

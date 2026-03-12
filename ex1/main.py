@@ -7,16 +7,13 @@ from .Deck import Deck
 def main():
     print("=== DataDeck Deck Builder ===\n")
 
-    # Create a deck
     deck = Deck()
 
-    # Create different card types
     creature = CreatureCard("Fire Dragon", 5, "Legendary", 7, 5)
     spell = SpellCard("Lightning Bolt", 3, "Common", "damage")
     artifact = ArtifactCard("Mana Crystal", 2,
                             "Uncommon", 5, "+1 mana per turn")
 
-    # Add cards to deck
     deck.add_card(creature)
     deck.add_card(spell)
     deck.add_card(artifact)
@@ -24,7 +21,6 @@ def main():
     print("Building deck with different card types...")
     print(f"Deck stats: {deck.get_deck_stats()}\n")
 
-    # Shuffle and draw cards
     deck.shuffle()
 
     print("Drawing and playing cards:\n")

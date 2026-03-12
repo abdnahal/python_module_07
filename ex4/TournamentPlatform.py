@@ -13,7 +13,7 @@ class TournamentPlatform:
             raise TypeError("Only TournamentCard objects can be registered")
 
         card_id = f"{card.name.lower().replace(' ', '_')}_\
-{len(self.cards) + 1:03d}"
+{len(self.cards) + 1}"
         self.cards[card_id] = card
 
         return card_id
@@ -30,8 +30,8 @@ class TournamentPlatform:
         card1 = self.cards[card1_id]
         card2 = self.cards[card2_id]
 
-        card1_power = card1.attack
-        card2_power = card2.attack
+        card1_power = card1._attack
+        card2_power = card2._attack
 
         card1_roll = card1_power + randint(-2, 2)
         card2_roll = card2_power + randint(-2, 2)

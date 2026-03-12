@@ -13,7 +13,7 @@ class TournamentCard(Card, Combatable, Rankable):
         if attack <= 0 or health <= 0:
             raise ValueError("Attack and health must be positive")
 
-        self.attack = attack
+        self._attack = attack
         self.health = health
         self.max_health = health
 
@@ -35,13 +35,13 @@ class TournamentCard(Card, Combatable, Rankable):
         return {
             "attacker": self.name,
             "target": target_name,
-            "damage": self.attack,
+            "damage": self._attack,
             "combat_type": "melee",
         }
 
     def defend(self, incoming_damage: int) -> dict:
 
-        block_amount = min(self.attack // 2, incoming_damage)
+        block_amount = min(self._attack // 2, incoming_damage)
         actual_damage = incoming_damage - block_amount
 
         self.health -= actual_damage
@@ -57,7 +57,7 @@ class TournamentCard(Card, Combatable, Rankable):
     def get_combat_stats(self) -> dict:
         return {
             "name": self.name,
-            "attack": self.attack,
+            "attack": self._attack,
             "health": self.health,
             "max_health": self.max_health,
             "alive": self.health > 0,
@@ -99,7 +99,7 @@ class TournamentCard(Card, Combatable, Rankable):
         info = self.get_card_info()
         info.update(
             {
-                "attack": self.attack,
+                "attack": self._attack,
                 "health": self.health,
                 "wins": self.wins,
                 "losses": self.losses,
